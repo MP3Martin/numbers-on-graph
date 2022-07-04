@@ -10,9 +10,6 @@ MODES = ["Fibonacci", "Pi", "Recamán's Sequence"]
 
 plot_y = []
 plot_x = []
-i = 2
-global fib
-fib = [0, 1]; # init array
 
 
 print("- Select graph mode: -")
@@ -44,6 +41,9 @@ count = int(COUNT)
 print("\nLoading...\n")
 
 if mode == 0:
+  i = 2
+  global fib
+  fib = [0, 1]; # init array
   count = count + i
   plt.title('Fibonacci numbers on graph', fontsize=18)
   for i in range(i, count):
