@@ -6,6 +6,27 @@ import input_num
 # input_num.allow_update()
 import math
 import mplcursors
+import sys
+
+args_list = list(sys.argv)[1:]
+args = {"mode" : "", "ncount" : ""}
+
+try:
+  args_list[0]
+except:
+  pass
+else:
+  args["mode"] = args_list[0]
+
+try:
+  args_list[1]
+except:
+  pass
+else:
+  args["ncount"] = args_list[1]
+
+# print(args)
+
 MODES = ["Fibonacci", "Pi", "Recamán's Sequence"]
 
 plot_y = []
@@ -15,14 +36,23 @@ plot_x = []
 print("- Select graph mode: -")
 for mode in list(MODES):
   print("[" + str(MODES.index(mode)) + "]" + " " + mode)
-print("")
+# print("")
 
 mode = -1
 def getMode():
   global mode
-  mm = int(input_num("Mode: ", True, False))
+  if not args["mode"]:
+    mm = int(input_num("\nMode: ", True, False))
+  else:
+    try:
+      mm = int(args["mode"])
+    except:
+      print("\nError: Mode must be integer!")
+      exit()
   if mm > len(MODES) - 1 or mm < 0:
     print("\nError: Invalid mode!")
+    if args["mode"]:
+      exit()
     getMode()
   else:
     mode = mm
@@ -30,8 +60,17 @@ def getMode():
 getMode()
 # print(mode)
 
-print("")
-COUNT = int(input_num("Number count: ", True, False))
+# print("")
+
+if not args["ncount"]:
+  COUNT = int(input_num("\nNumber count: ", True, False))
+else:
+  try:
+    COUNT = int(args["ncount"])
+  except:
+    print("\nError: Number count must be integer!")
+    exit()
+
 if COUNT < 2:
     print("\nError: Minimally 2 numbers are required!")
     exit()

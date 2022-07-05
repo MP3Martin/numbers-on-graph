@@ -9,4 +9,4 @@
 # Usage
 #### Run
 * `python3 -m pip install -r requirements.txt` and
-* `python3 numbers-on-graph.py`.
+* `python3 numbers-on-graph.py [mode] [number_count]`. *the arguments (the stuff in square brackets) are not required*
