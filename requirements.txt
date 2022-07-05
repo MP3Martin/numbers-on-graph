@@ -1,0 +1,3 @@
+matplotlib
+input_num
+mplcursors
