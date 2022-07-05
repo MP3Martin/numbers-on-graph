@@ -111,7 +111,7 @@ def show_datapoints(sel):
   # exit()
   sel.annotation.set_text('y: '+ str(yi[int(round(sel.index))])) # +'\n'+ 'y: '+ str(yi[int(round(sel.target.index))])
 
-  mplcursors.cursor(hover=True).connect('add',show_datapoints)
+mplcursors.cursor(hover=True).connect('add',show_datapoints)
 
 # print(plot_y)
 
