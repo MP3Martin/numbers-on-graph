@@ -7,4 +7,6 @@
 * mplcursors
 
 # Usage
-#### Run `python3 numbers-on-graph.py`.
+#### Run
+* `python3 -m pip install -r requirements.txt` and
+* `python3 numbers-on-graph.py`.
