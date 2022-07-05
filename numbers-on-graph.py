@@ -32,30 +32,36 @@ MODES = ["Fibonacci", "Pi", "Recamán's Sequence"]
 plot_y = []
 plot_x = []
 
-
-print("- Select graph mode: -")
-for mode in list(MODES):
-  print("[" + str(MODES.index(mode)) + "]" + " " + mode)
-# print("")
+if not args["mode"]:
+  print("- Select graph mode: -")
+  for mode in list(MODES):
+    print("[" + str(MODES.index(mode)) + "]" + " " + mode)
+  print("")
 
 mode = -1
 def getMode():
   global mode
   if not args["mode"]:
-    mm = int(input_num("\nMode: ", True, False))
+    mm = int(input_num("Mode: ", True, False))
   else:
     try:
       mm = int(args["mode"])
     except:
-      print("\nError: Mode must be integer!")
+      if not args["mode"]:
+        print("")
+      print("Error: Mode must be integer!")
       exit()
   if mm > len(MODES) - 1 or mm < 0:
-    print("\nError: Invalid mode!")
+    if not args["mode"]:
+        print("")
+    print("Error: Invalid mode!")
     if args["mode"]:
       exit()
     getMode()
   else:
     mode = mm
+    if not args["mode"]:
+      print("")
 
 getMode()
 # print(mode)
@@ -63,7 +69,8 @@ getMode()
 # print("")
 
 if not args["ncount"]:
-  COUNT = int(input_num("\nNumber count: ", True, False))
+  COUNT = int(input_num("Number count: ", True, False))
+  print("")
 else:
   try:
     COUNT = int(args["ncount"])
@@ -72,12 +79,12 @@ else:
     exit()
 
 if COUNT < 2:
-    print("\nError: Minimally 2 numbers are required!")
+    print("Error: Minimally 2 numbers are required!")
     exit()
 else:
   pass
 count = int(COUNT)
-print("\nLoading...\n")
+print("Loading...\n")
 
 if mode == 0:
   i = 2
