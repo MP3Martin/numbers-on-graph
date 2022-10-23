@@ -1,5 +1,6 @@
 # numbers-on-graph
 #### Plot cool numbers and number sequences on graph
+<img src="https://user-images.githubusercontent.com/60501493/197398333-93cff306-f4a6-4680-b104-6b82348db674.png" width="800wv"></img>
 
 # Requirements
 * matplotlib
