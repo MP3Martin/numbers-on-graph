@@ -9,9 +9,7 @@ import mplcursors
 import sys
 from platform import system
 
-
 #from SO
-from platform import system
 def plt_maximize():
     # See discussion: https://stackoverflow.com/questions/12439588/how-to-maximize-a-plt-show-window-using-python
     backend = plt.get_backend()
