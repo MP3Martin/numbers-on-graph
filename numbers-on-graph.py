@@ -7,6 +7,30 @@ import input_num
 import math
 import mplcursors
 import sys
+from platform import system
+
+
+#from SO
+from platform import system
+def plt_maximize():
+    # See discussion: https://stackoverflow.com/questions/12439588/how-to-maximize-a-plt-show-window-using-python
+    backend = plt.get_backend()
+    cfm = plt.get_current_fig_manager()
+    if backend == "wxAgg":
+        cfm.frame.Maximize(True)
+    elif backend == "TkAgg":
+        if system() == "Windows":
+            cfm.window.state("zoomed")  # This is windows only
+        else:
+            cfm.resize(*cfm.window.maxsize())
+    elif backend == "QT4Agg":
+        cfm.window.showMaximized()
+    elif callable(getattr(cfm, "full_screen_toggle", None)):
+        if not getattr(cfm, "flag_is_max", None):
+            cfm.full_screen_toggle()
+            cfm.flag_is_max = True
+    else:
+        raise RuntimeError("plt_maximize() is not implemented for current backend:", backend)
 
 args_list = list(sys.argv)[1:]
 args = {"mode" : "", "ncount" : ""}
@@ -146,7 +170,8 @@ plt.ylabel('y', fontsize=18)
 # function to show the plot
 mng = plt.get_current_fig_manager()
 mng.resize(*mng.window.maxsize())
-plt.suptitle('Matplotlib - Python')
+plt_maximize()
+plt.get_current_fig_manager().set_window_title('Matplotlib - Python')
 
 print("Loaded!")
 
