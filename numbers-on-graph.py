@@ -146,7 +146,7 @@ plt.ylabel('y', fontsize=18)
 # function to show the plot
 mng = plt.get_current_fig_manager()
 mng.resize(*mng.window.maxsize())
-plt.gcf().canvas.set_window_title('Matplotlib - Python')
+plt.suptitle('Matplotlib - Python')
 
 print("Loaded!")
 
