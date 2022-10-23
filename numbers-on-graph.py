@@ -168,7 +168,10 @@ plt.ylabel('y', fontsize=18)
 # function to show the plot
 mng = plt.get_current_fig_manager()
 mng.resize(*mng.window.maxsize())
-plt_maximize()
+try:
+  plt_maximize()
+except:
+  pass
 plt.get_current_fig_manager().set_window_title('Matplotlib - Python')
 
 print("Loaded!")
