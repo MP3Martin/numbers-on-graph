@@ -24,7 +24,7 @@ def getData(text, data_type = str):
     data_input = args["data"]
   try:
     return data_type(data_input)
-  except:
+  except Exception:
     print(f"Error: Invalid type for the \"data\" arg (got {type(data_input).__name__}, expected {data_type.__name__})!")
     exit()
   
@@ -35,7 +35,7 @@ for key in args:
   i = list(args.keys()).index(key)
   try:
     args_list[i]
-  except:
+  except Exception:
     pass
   else:
     args[key] = args_list[i]
@@ -59,7 +59,7 @@ def getMode():
   else:
     try:
       mode_input = int(args["mode"])
-    except:
+    except Exception:
       if not args["mode"]:
         print("")
       print("Error: Mode must be integer!")
@@ -84,7 +84,7 @@ if not args["ncount"]:
 else:
   try:
     COUNT = int(args["ncount"])
-  except:
+  except Exception:
     print("\nError: Number count must be integer!")
     exit()
 
@@ -100,7 +100,7 @@ print("Loading...\n")
 if mode == 0:
   i = 2
   global fib
-  fib = [0, 1]; # init array
+  fib = [0, 1] # init array
   count = count + i
   setPltTitle('Fibonacci numbers on graph')
   for i in range(i, count):
